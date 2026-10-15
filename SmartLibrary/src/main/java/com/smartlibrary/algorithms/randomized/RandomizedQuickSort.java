@@ -1,0 +1,2 @@
+package com.smartlibrary.algorithms.randomized;import java.util.*;
+public final class RandomizedQuickSort {private RandomizedQuickSort(){}public static void sort(int[] a,long seed){quick(a,0,a.length-1,new Random(seed));}private static void quick(int[] a,int lo,int hi,Random r){if(lo>=hi)return;int pivotIndex=lo+r.nextInt(hi-lo+1),pivot=a[pivotIndex];swap(a,pivotIndex,hi);int i=lo;for(int j=lo;j<hi;j++)if(a[j]<=pivot)swap(a,i++,j);swap(a,i,hi);quick(a,lo,i-1,r);quick(a,i+1,hi,r);}private static void swap(int[] a,int i,int j){int t=a[i];a[i]=a[j];a[j]=t;}}
